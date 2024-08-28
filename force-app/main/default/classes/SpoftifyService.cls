@@ -4,13 +4,13 @@ public with sharing class SpoftifyService {
         String tokenUrl = 'https://accounts.spotify.com/api/token';
 
         String clientId = '431022ff86f042648f42668d9ab92232';
-        String clientSecret = 'Testb11dff7fb8844d159fbd341be569df94';
+        String clientSecret = 'b11dff7fb8844d159fbd341be569df94';
         String authHeader = EncodingUtil.base64Encode(Blob.valueOf(clientId + ';'+clientSecret)); 
         
         HttpRequest req = new HttpRequest();
         req.setMethod('POST');
-        req.setHeader('Authorization','Basic ' + authHeader);
         req.setEndpoint(tokenUrl);
+        req.setHeader('Authorization','Basic ' + authHeader);
         req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
         req.setBody('grant_type=client_credentials');
 
